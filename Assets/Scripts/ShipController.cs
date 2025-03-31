@@ -18,6 +18,12 @@ public class SpaceshipController : MonoBehaviour
     //This value is degrees/sec, so higher number like 200ish feels normal.
     public float maxAngularSpeed;
 
+    //Variables to force ship to stay in bounds
+    public float maxX;
+    public float maxY;
+    public float minX;
+    public float minY;
+
     private Rigidbody2D rb;
 
     void Start()
