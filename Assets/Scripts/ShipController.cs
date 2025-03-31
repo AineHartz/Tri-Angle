@@ -15,22 +15,21 @@ public class SpaceshipController : MonoBehaviour
     //5ish feels normal, so maybe just 5x thrustForce is a decent rule. 
     public float maxSpeed;
 
-    //This value is degrees/sec, so higher number like 200ish feels normal.
+    //This value is degrees/sec, so higher number like 200ish feels normal.s
     public float maxAngularSpeed;
 
-    //Variables to force ship to stay in bounds
-    public float maxX;
-    public float maxY;
-    public float minX;
-    public float minY;
-
     private Rigidbody2D rb;
+    private Camera mainCam;
+    private Vector2 screenBounds;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         // applies the set drag value to the rb
         rb.angularDamping = rotationDrag;
+
+        mainCam = Camera.main;
     }
 
     void Update()
@@ -59,6 +58,7 @@ public class SpaceshipController : MonoBehaviour
         }
 
         LimitSpeed();
+        HandleScreenWrap();
     }
 
     //Ensures speeds don't get too crazy
@@ -75,5 +75,39 @@ public class SpaceshipController : MonoBehaviour
         {
             rb.angularVelocity = Mathf.Sign(rb.angularVelocity) * maxAngularSpeed;
         }
+    }
+
+    //Screenwrap! When you go out of bounds on one side, teleport to the oposite side of the screen.
+    void HandleScreenWrap()
+    {
+        Vector3 newPosition = transform.position;
+
+        // Convert screen edges to world coordinates
+        Vector2 camSize = new Vector2(
+            mainCam.orthographicSize * mainCam.aspect,
+            mainCam.orthographicSize
+        );
+
+        if (transform.position.x > camSize.x)
+        {
+            newPosition.x = -camSize.x;
+        }
+
+        else if (transform.position.x < -camSize.x)
+        {
+            newPosition.x = camSize.x;
+        }
+
+        if (transform.position.y > camSize.y)
+        {
+            newPosition.y = -camSize.y;
+        }
+
+        else if (transform.position.y < -camSize.y)
+        {
+            newPosition.y = camSize.y;
+        }
+
+        transform.position = newPosition;
     }
 }
