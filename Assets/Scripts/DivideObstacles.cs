@@ -22,8 +22,8 @@ public class DivideObstacles : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Laser")){
-            // Destroy(other.gameObject);
+        if (other.CompareTag("Projectile")){
+             Destroy(other.gameObject);
 
             if (splitCount < maxSplits){
                 SpawnNewObstacles();
