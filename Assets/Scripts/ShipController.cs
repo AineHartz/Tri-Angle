@@ -2,7 +2,7 @@ using UnityEngine;
 public class SpaceshipController : MonoBehaviour
 {
     
-    //Adjust in editor. A "normal" feeling speed is around 1f. 
+    // Adjust in editor. A "normal" feeling speed is around 1f. 
     public float thrustForce;
     public float brakeForce;
 
@@ -12,15 +12,23 @@ public class SpaceshipController : MonoBehaviour
     // how quickly rotation slows down after letting go of the button
     public float rotationDrag;
 
-    //5ish feels normal, so maybe just 5x thrustForce is a decent rule. 
+    // 5ish feels normal, so maybe just 5x thrustForce is a decent rule. 
     public float maxSpeed;
 
-    //This value is degrees/sec, so higher number like 200ish feels normal.s
+    // This value is degrees/sec, so higher number like 200ish feels normal.
     public float maxAngularSpeed;
 
     private Rigidbody2D rb;
     private Camera mainCam;
-    private Vector2 screenBounds;
+
+    // Shooting variables
+    public GameObject projectilePrefab;
+    // How far from the center either left or right projectiles should spawn. This number looked good in testing, so hard coded. 
+    private float lateralOffset = 0.3f;
+    // how often you can shoot
+    public float fireCooldown = 0.25f;
+    // Starts negative so you can shoot at game start
+    private float lastFireTime = -100;
 
     void Start()
     {
@@ -35,26 +43,32 @@ public class SpaceshipController : MonoBehaviour
     void Update()
     {
         // Thrust!
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddForce(transform.up * thrustForce);
         }
 
         // Brake! It's negative because going backwards
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             rb.AddForce(-transform.up * brakeForce);
         }
 
         // Rotate left or right! Time.deltaTime makes rotating feel more weighty but also means the rotation speed has to be way way higher, so. 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.AddTorque(rotationTorque);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.AddTorque(-rotationTorque);
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && Time.time >= lastFireTime + fireCooldown)
+        {
+            Shoot();
+            lastFireTime = Time.time;
         }
 
         LimitSpeed();
@@ -109,5 +123,12 @@ public class SpaceshipController : MonoBehaviour
         }
 
         transform.position = newPosition;
+    }
+
+    //Creates projectiles, slightly spreadout. Projectiles have their own code to handle movement. 
+    void Shoot()
+    {
+        Instantiate(projectilePrefab, (transform.position - transform.right * lateralOffset), transform.rotation);
+        Instantiate(projectilePrefab, (transform.position + transform.right * lateralOffset), transform.rotation);
     }
 }
