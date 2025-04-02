@@ -5490,6 +5490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040874310}
+  - component: {fileID: 2040874311}
   m_Layer: 0
   m_Name: SpawnPoints
   m_TagString: Untagged
@@ -5518,6 +5519,27 @@ Transform:
   - {fileID: 1544701078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040874311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040874309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9dc9de922b2641af7a05557329e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 363578120}
+  - {fileID: 1905852567}
+  - {fileID: 1063378180}
+  - {fileID: 1815945901}
+  - {fileID: 1053508522}
+  - {fileID: 1544701078}
+  obstaclePrefabs:
+  - {fileID: 8914020134620504431, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

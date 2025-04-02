@@ -15,7 +15,7 @@ public class SpawnObstacle : MonoBehaviour
         int randomSpawn = Random.Range(0, spawnPoints.Length);
         int randomObstacle = Random.Range(0, obstaclePrefabs.Length);
         GameObject chosenObstacle = obstaclePrefabs[randomObstacle];
-        //chosenObstacle = Instantiate(chosenObstacle, randomSpawn.position, randomSpawn.rotation) as GameObject;
+        chosenObstacle = Instantiate(chosenObstacle, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation) as GameObject;
         spawned = true;
         waitTime = 7.5f;
     }
