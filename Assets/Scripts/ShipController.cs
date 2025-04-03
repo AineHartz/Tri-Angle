@@ -18,8 +18,17 @@ public class SpaceshipController : MonoBehaviour
     // This value is degrees/sec, so higher number like 200ish feels normal.
     public float maxAngularSpeed;
 
+    // Game objects
     private Rigidbody2D rb;
     private Camera mainCam;
+
+    // Thruster variables!
+    public ParticleSystem mainThruster;
+    public ParticleSystem rightThruster;
+    public ParticleSystem leftThruster;
+    public ParticleSystem frontThruster1;
+    public ParticleSystem frontThruster2;
+
 
     // Shooting variables
     public GameObject projectilePrefab;
@@ -46,23 +55,28 @@ public class SpaceshipController : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddForce(transform.up * thrustForce);
+            mainThruster.Emit(1);
         }
 
         // Brake! It's negative because going backwards
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             rb.AddForce(-transform.up * brakeForce);
+            frontThruster1.Emit(5);
+            frontThruster2.Emit(5);
         }
 
-        // Rotate left or right! Time.deltaTime makes rotating feel more weighty but also means the rotation speed has to be way way higher, so. 
+        // Rotate left or right!  
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.AddTorque(rotationTorque);
+            rightThruster.Emit(5);
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.AddTorque(-rotationTorque);
+            leftThruster.Emit(5);
         }
 
         if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && Time.time >= lastFireTime + fireCooldown)
