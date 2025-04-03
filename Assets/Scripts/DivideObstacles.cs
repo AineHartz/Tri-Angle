@@ -4,7 +4,7 @@ public class DivideObstacles : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     public int splitCount = 0;
-    public int maxSplits = 3;
+    public int maxSplits = 2;
 
     public int baseHP = 12;
     public int currentHP = 12;
@@ -27,13 +27,13 @@ public class DivideObstacles : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if (other.CompareTag("Projectile")){
              Destroy(other.gameObject);
-             Destroy(gameObject);
+            
 
-            if (splitCount < maxSplits){
+            if (splitCount < maxSplits - 1){
                 SpawnNewObstacles();
             }
             
-             
+            Destroy(gameObject);
             
 
             
