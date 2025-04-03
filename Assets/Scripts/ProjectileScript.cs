@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     //how long the projectile should exist for
     public float lifetime = 1.5f;
 
-    private float damage = 2f; 
+    private float damage = 4f; 
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     }
 
     //When obstacles get hit, they can use this getter to see how hurt they are.
-    float getDamage()
+    float  getDamage()
     {
         return damage;
     }
