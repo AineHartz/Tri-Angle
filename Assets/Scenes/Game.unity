@@ -664,6 +664,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 6294942146455262394, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: spreadAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294942146455262394, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: altProjectile
+      value: 
+      objectReference: {fileID: 3566387039661686423, guid: 4dde9b27ad296314d9556ab90b82e7bf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -55,6 +55,9 @@ public class SpaceshipController : MonoBehaviour
     // Starts negative so you can shoot at game start
     private float lastFireTime = -100;
 
+    public GameObject altProjectile;
+    public float spreadAngle;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -100,7 +103,9 @@ public class SpaceshipController : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && Time.time >= lastFireTime + fireCooldown)
         {
-            Shoot();
+            //May need to alter this code so that the cooldown check is within the shoot method itself
+
+            ShootAlt();
             lastFireTime = Time.time;
         }
 
@@ -171,6 +176,21 @@ public class SpaceshipController : MonoBehaviour
     {
         Instantiate(projectilePrefab, (transform.position - transform.right * lateralOffset), transform.rotation);
         Instantiate(projectilePrefab, (transform.position + transform.right * lateralOffset), transform.rotation);
+    }
+
+    void ShootAlt()
+    {
+        int pelletCount = UnityEngine.Random.Range(8, 13); // 8 to 12 inclusive
+
+        for (int i = 0; i < pelletCount; i++)
+        {
+            float angleOffset = UnityEngine.Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
+            Quaternion pelletRotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + angleOffset);
+
+            Vector3 spawnPosition = transform.position + transform.up * 0.5f; // Slightly in front of ship
+
+            Instantiate(altProjectile, spawnPosition, pelletRotation);
+        }
     }
 
     void takeDamage()
