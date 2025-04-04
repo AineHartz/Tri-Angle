@@ -541,17 +541,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7098652611018590358, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8914020134620504431, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
       propertyPath: m_Name
       value: Obstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8914020134620504431, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -668,10 +660,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3053485105306885395, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -889739676950766307, guid: 97bd5f3ba0e614c30a683f05ea41831d, type: 3}
     - target: {fileID: 3988312121234636228, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_Name
       value: Ship
