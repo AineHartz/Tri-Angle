@@ -110,7 +110,7 @@ public class SpaceshipController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!tempInvincibility)
+        if(!tempInvincibility && collision.gameObject.tag == "Obstacle")
         {
             takeDamage();
         }

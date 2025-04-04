@@ -24,8 +24,9 @@ public class DivideObstacles : MonoBehaviour
         Debug.Log("currentHP" + currentHP);
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Projectile")){
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Projectile")){
              Destroy(other.gameObject);
             
 
@@ -47,8 +48,6 @@ public class DivideObstacles : MonoBehaviour
             GameObject newObstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
             newObstacle.GetComponent<DivideObstacles>().splitCount = this.splitCount + 1; 
             newObstacle.GetComponent<DivideObstacles>().currentHP = currentHP/2;
-
-            
         }
     }
 
