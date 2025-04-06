@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8281764533145389125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8914020134620504431}
-  obstacleSpeed: 5
-  spawnPoint: 1
+  obstacleSpeed: 3
+  spawnPoint: 4
   randomY: 0
   randomX: 0
 --- !u!1 &9088411922902727465

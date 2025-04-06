@@ -91,7 +91,8 @@ public class MoveObstacles : MonoBehaviour
 
     private void obstacleMovement() {
         targetPosition = new Vector2(randomX, randomY);
-        Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, obstacleSpeed);
+        //Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, obstacleSpeed);
+        Vector2 newPosition = Vector2.MoveTowards(body.position, targetPosition, obstacleSpeed * Time.deltaTime);
         body.MovePosition(newPosition);
         Debug.Log(newPosition);
     } 
