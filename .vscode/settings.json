@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Tri-Angle_PD.sln"
+    "dotnet.defaultSolution": "Tri-Angle.sln"
 }
