@@ -14518,7 +14518,7 @@ GameObject:
   - component: {fileID: 4949469616038128067}
   m_Layer: 6
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14852,11 +14852,6 @@ MonoBehaviour:
   altShot: 0
   tempInvincibility: 0
   iFrames: 1
-  audios:
-  - {fileID: 2075860679191268631}
-  - {fileID: -8065701272398575978}
-  - {fileID: 8784489380457362314}
-  - {fileID: 2075860679191268631}
   mainThruster: {fileID: 8486949627587800308}
   rightThruster: {fileID: 4141810044381866811}
   leftThruster: {fileID: 1274441636274717570}
@@ -14865,8 +14860,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3879860755574938608, guid: 3bc85dec76fc8cf4bb2c8cc784b5b0d1, type: 3}
   fireCooldown: 0.25
   altCooldown: 1
-  altProjectile: {fileID: 0}
-  spreadAngle: 0
+  altProjectile: {fileID: 3566387039661686423, guid: 4dde9b27ad296314d9556ab90b82e7bf, type: 3}
+  spreadAngle: 30
 --- !u!82 &2075860679191268631
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14880,7 +14875,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0d4acde7ddd2a4fadae86513286ab62b, type: 3}
   m_Resource: {fileID: 8300000, guid: 0d4acde7ddd2a4fadae86513286ab62b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15184,7 +15179,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2

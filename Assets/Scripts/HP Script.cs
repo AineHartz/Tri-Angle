@@ -7,7 +7,7 @@ public class HPScript : MonoBehaviour
     private Image HPSprite;
 
     public Sprite[] healthBarArray;
-    public SpaceshipController healthScript;
+    private SpaceshipController healthScript;
     int healthNum;
 
 
