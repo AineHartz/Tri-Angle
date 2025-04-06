@@ -30,6 +30,7 @@ public class SpaceshipController : MonoBehaviour
     */
     private Rigidbody2D rb;
     private Camera mainCam;
+    private AudioSource[] audios;
 
 
     /*
@@ -70,6 +71,8 @@ public class SpaceshipController : MonoBehaviour
         health = 3;
         altShot = false;
         tempInvincibility = false;
+
+        audios = GetComponentsInChildren<AudioSource>();
     }
 
     void Update()
@@ -182,6 +185,8 @@ public class SpaceshipController : MonoBehaviour
     {
         if (Time.time < lastFireTime + fireCooldown) return;
 
+        audios[0].Play();
+
         Instantiate(projectilePrefab, (transform.position - transform.right * lateralOffset), transform.rotation);
         Instantiate(projectilePrefab, (transform.position + transform.right * lateralOffset), transform.rotation);
 
@@ -193,6 +198,7 @@ public class SpaceshipController : MonoBehaviour
 
         if (Time.time < lastFireTime + altCooldown) return;
 
+        audios[1].Play();
 
         int pelletCount = UnityEngine.Random.Range(8, 13);
 
@@ -216,11 +222,12 @@ public class SpaceshipController : MonoBehaviour
 
         if (health == 0)
         {
-
+            StartCoroutine(Die());
         }
 
         else
         {
+            audios[2].Play();
             tempInvincibility = true;
             StartCoroutine(ResetInvincibility());
         }
@@ -230,5 +237,14 @@ public class SpaceshipController : MonoBehaviour
     {
         yield return new WaitForSeconds(iFrames);
         tempInvincibility = false;
+    }
+
+    private IEnumerator Die()
+    {
+        Time.timeScale = 0f;
+        audios[3].Play();
+        yield return new WaitForSecondsRealtime(audios[3].clip.length);
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
     }
 }
