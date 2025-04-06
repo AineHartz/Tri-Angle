@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 public class SpawnObstacle : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public MoveObstacles[] obstaclePrefabs;
+    //public MoveObstacles[] obstaclePrefabs;
+    public GameObject[] obstaclePrefabs;
     private float waitTime;
     private bool spawned;
+    private MoveObstacles movement;
     //private int obstacleNum;
 
     private void spawnObstacle() {
         int randomSpawn = Random.Range(0, spawnPoints.Length);
         int randomObstacle = Random.Range(0, obstaclePrefabs.Length);
-        GameObject chosenObstacle = obstaclePrefabs[randomObstacle].obstaclePrefab;
-        obstaclePrefabs[randomObstacle].setSpawn(randomSpawn);
+        //GameObject chosenObstacle = obstaclePrefabs[randomObstacle].obstaclePrefab;
+        //obstaclePrefabs[randomObstacle].setSpawn(randomSpawn);
+        GameObject chosenObstacle = obstaclePrefabs[randomObstacle];
+        movement = chosenObstacle.GetComponent<MoveObstacles> ();
+        movement.setSpawn(randomSpawn);
         chosenObstacle = Instantiate(chosenObstacle, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation) as GameObject;
 
         spawned = true;

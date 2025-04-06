@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8688676784167523651}
   - component: {fileID: 382077532321965178}
   - component: {fileID: 6215514201394513426}
+  - component: {fileID: 8281764533145389125}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -144,6 +145,7 @@ MonoBehaviour:
   - {fileID: 2239924575753938356, guid: 05077b3ad2da94698930b23162ef981b, type: 3}
   - {fileID: 7425037011965071214, guid: 6e3397191a21e4b249c8c0fef97f6f4d, type: 3}
   - {fileID: 1902973267234632643, guid: 177c6de622a2c471d990c634adb10033, type: 3}
+  spriteRenderer: {fileID: 0}
   splitCount: 0
   maxSplits: 3
   baseHP: 12
@@ -179,6 +181,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8281764533145389125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914020134620504431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb1f0e14873572448454bcd72401206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 8914020134620504431}
+  obstacleSpeed: 5
+  spawnPoint: 1
+  randomY: 0
+  randomX: 0
 --- !u!1 &9088411922902727465
 GameObject:
   m_ObjectHideFlags: 0

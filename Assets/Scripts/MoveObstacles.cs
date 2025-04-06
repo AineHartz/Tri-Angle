@@ -8,6 +8,8 @@ public class MoveObstacles : MonoBehaviour
     private Rigidbody2D body; 
     public int spawnPoint = 0;
     private Vector2 targetPosition;
+    public float randomY = 0.0f;
+    public float randomX = 0.0f;
  
     public void setSpawn(int spawnNum) { 
         spawnPoint = spawnNum + 1; 
@@ -21,7 +23,7 @@ public class MoveObstacles : MonoBehaviour
     } 
  
     // Update is called once per frame 
-    void Update() 
+    void FixedUpdate()
     { 
          obstacleMovement();
     }
@@ -31,8 +33,7 @@ public class MoveObstacles : MonoBehaviour
     //y max = 8
     //y min = -7.5
     private void setTarget(int spawnNum) {
-        float randomY = 0.0f;
-        float randomX = 0.0f;
+
         if(spawnNum == 1) {
             randomX = Random.Range(-12.0f, 18.0f);
             if(randomX == 18.0) {
@@ -56,7 +57,7 @@ public class MoveObstacles : MonoBehaviour
         if(spawnNum == 3) {
             randomX = Random.Range(-17.5f, 7.5f);
             randomY = Random.Range(-7.5f, 8.0f);
-            Vector2 targetPosition = new Vector2(randomX, randomY);
+            targetPosition = new Vector2(randomX, randomY);
 
         }
         if(spawnNum == 4) {
@@ -66,7 +67,7 @@ public class MoveObstacles : MonoBehaviour
             } else {
                 randomY = 8.0f;
             }
-            Vector2 targetPosition = new Vector2(randomX, randomY);
+            targetPosition = new Vector2(randomX, randomY);
 
         }
         if(spawnNum == 5) {
@@ -76,19 +77,20 @@ public class MoveObstacles : MonoBehaviour
             } else {
                 randomY = 8.0f;
             }
-            Vector2 targetPosition = new Vector2(randomX, randomY);
+            targetPosition = new Vector2(randomX, randomY);
 
         }
         if(spawnNum == 6) {
             randomX = Random.Range(-7.0f, 18.0f);
             randomY = Random.Range(-7.5f, 8.0f);
-            Vector2 targetPosition = new Vector2(randomX, randomY);
+            targetPosition = new Vector2(randomX, randomY);
 
         }
     }
  
 
     private void obstacleMovement() {
+        targetPosition = new Vector2(randomX, randomY);
         Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, obstacleSpeed);
         body.MovePosition(newPosition);
         Debug.Log(newPosition);
