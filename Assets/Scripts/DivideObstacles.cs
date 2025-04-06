@@ -7,8 +7,8 @@ public class DivideObstacles : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     // public GameObject healthBar;
-    public Sprite[] healthImages;
-    public SpriteRenderer spriteRenderer;
+    // public Sprite[] healthImages;
+    // public SpriteRenderer spriteRenderer;
     public int splitCount = 0;
     public int maxSplits = 2;
 
@@ -27,7 +27,7 @@ public class DivideObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("currentHP" + currentHP);
+        // Debug.Log("currentHP" + currentHP);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -56,32 +56,32 @@ public class DivideObstacles : MonoBehaviour
             DivideObstacles newObstaclePrefab = newObstacle.GetComponent<DivideObstacles>();
             newObstaclePrefab.splitCount = this.splitCount + 1; 
             newObstaclePrefab.currentHP /= 2;
-            getImage(newObstacle, newObstaclePrefab.currentHP);
+            // getImage(newObstacle, newObstaclePrefab.currentHP);
            
         }
     }
 
-    void getImage(GameObject targetObstacle, int currentHPP){
+    // void getImage(GameObject targetObstacle, int currentHPP){
         
-        // Image healthIcon = healthBar.GetComponent<Image>()
-       SpriteRenderer healthIcon = targetObstacle.GetComponentInChildren<SpriteRenderer>();
+    //     // Image healthIcon = healthBar.GetComponent<Image>()
+    //    SpriteRenderer healthIcon = targetObstacle.GetComponentInChildren<SpriteRenderer>();
 
-    if (currentHP == 12)
-    {
-        spriteRenderer.sprite = healthImages[0];
-    }
-    else if (currentHP == 6)
-    {
-        spriteRenderer.sprite = healthImages[1];
-    }
-    else if (currentHP == 3)
-    {
-        spriteRenderer.sprite = healthImages[2];
-    }
+    // if (currentHP == 12)
+    // {
+    //     spriteRenderer.sprite = healthImages[0];
+    // }
+    // else if (currentHP == 6)
+    // {
+    //     spriteRenderer.sprite = healthImages[1];
+    // }
+    // else if (currentHP == 3)
+    // {
+    //     spriteRenderer.sprite = healthImages[2];
+    // }
 
-    spriteRenderer.transform.localScale = new Vector3(.2f, .2f, .2f);
-    spriteRenderer.transform.position = new Vector3(0,1,0);
-        }
-    }
+    // spriteRenderer.transform.localScale = new Vector3(.2f, .2f, .2f);
+    // spriteRenderer.transform.position = new Vector3(0,1,0);
+    //     }
+     }
 
 
