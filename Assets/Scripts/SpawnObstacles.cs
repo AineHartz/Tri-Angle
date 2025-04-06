@@ -24,7 +24,7 @@ public class SpawnObstacle : MonoBehaviour
         chosenObstacle = Instantiate(chosenObstacle, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation) as GameObject;
 
         spawned = true;
-        waitTime = 7.5f;
+        waitTime = 4.0f;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

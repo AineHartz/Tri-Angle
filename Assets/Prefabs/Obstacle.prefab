@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8914020134620504431}
-  obstacleSpeed: 3
-  spawnPoint: 4
+  obstacleSpeed: 2.5
+  spawnPoint: 2
   randomY: 0
   randomX: 0

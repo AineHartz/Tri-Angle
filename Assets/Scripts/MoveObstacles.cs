@@ -56,7 +56,11 @@ public class MoveObstacles : MonoBehaviour
         }
         if(spawnNum == 3) {
             randomX = Random.Range(-17.5f, 7.5f);
-            randomY = Random.Range(-7.5f, 8.0f);
+            if(randomX == -17.5) {
+                randomY = Random.Range(-7.5f, 8.0f);
+            } else {
+                randomY = -7.5f;
+            }
             targetPosition = new Vector2(randomX, randomY);
 
         }
@@ -82,7 +86,11 @@ public class MoveObstacles : MonoBehaviour
         }
         if(spawnNum == 6) {
             randomX = Random.Range(-7.0f, 18.0f);
-            randomY = Random.Range(-7.5f, 8.0f);
+            if(randomX == 18.0) {
+                randomY = Random.Range(-7.5f, 8.0f);
+            } else {
+                randomY = 8.0f;
+            }
             targetPosition = new Vector2(randomX, randomY);
 
         }
