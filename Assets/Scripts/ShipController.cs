@@ -52,6 +52,7 @@ public class SpaceshipController : MonoBehaviour
     private float lateralOffset = 0.3f;
     // how often you can shoot
     public float fireCooldown = 0.25f;
+    public float altCooldown = 1.0f;
     // Starts negative so you can shoot at game start
     private float lastFireTime = -100;
 
@@ -101,12 +102,17 @@ public class SpaceshipController : MonoBehaviour
             leftThruster.Emit(5);
         }
 
-        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && Time.time >= lastFireTime + fireCooldown)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
         {
-            //May need to alter this code so that the cooldown check is within the shoot method itself
+            if(altShot)
+            {
+                ShootAlt();
+            }
 
-            ShootAlt();
-            lastFireTime = Time.time;
+            else
+            {
+                Shoot();
+            }
         }
 
         LimitSpeed();
@@ -174,13 +180,21 @@ public class SpaceshipController : MonoBehaviour
     //Creates projectiles, slightly spreadout. Projectiles have their own code to handle movement. 
     void Shoot()
     {
+        if (Time.time < lastFireTime + fireCooldown) return;
+
         Instantiate(projectilePrefab, (transform.position - transform.right * lateralOffset), transform.rotation);
         Instantiate(projectilePrefab, (transform.position + transform.right * lateralOffset), transform.rotation);
+
+        lastFireTime = Time.time;
     }
 
     void ShootAlt()
     {
-        int pelletCount = UnityEngine.Random.Range(8, 13); // 8 to 12 inclusive
+
+        if (Time.time < lastFireTime + altCooldown) return;
+
+
+        int pelletCount = UnityEngine.Random.Range(8, 13);
 
         for (int i = 0; i < pelletCount; i++)
         {
@@ -191,6 +205,8 @@ public class SpaceshipController : MonoBehaviour
 
             Instantiate(altProjectile, spawnPosition, pelletRotation);
         }
+
+        lastFireTime = Time.time;
     }
 
     void takeDamage()
@@ -198,8 +214,16 @@ public class SpaceshipController : MonoBehaviour
         health--;
         altShot = false;
 
-        tempInvincibility = true;
-        StartCoroutine(ResetInvincibility());
+        if (health == 0)
+        {
+
+        }
+
+        else
+        {
+            tempInvincibility = true;
+            StartCoroutine(ResetInvincibility());
+        }
     }
 
     private IEnumerator ResetInvincibility()

@@ -3,16 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    //how long the projectile should exist for
-    public float lifetime = 1.5f;
-
     private float damage = 4f; 
-
-    void Start()
-    {
-        //projectile destroys itself after a bit to stop it from existing forever on miss
-        Destroy(gameObject, lifetime);
-    }
 
     void Update()
     {
