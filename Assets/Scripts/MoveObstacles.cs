@@ -25,12 +25,6 @@ public class MoveObstacles : MonoBehaviour
     { 
          obstacleMovement();
     }
- 
-    private void OnCollisionEnter2D(Collision2D collision) { 
-        if(collision.gameObject.tag == "Wall") { 
-           Destroy(gameObject); 
-        } 
-    }
 
     //x max = 18
     //x min = -17.5

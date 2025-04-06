@@ -11,7 +11,7 @@ public class AlttShotScript : MonoBehaviour
     void Start()
     {
         //projectile destroys itself after a bit to stop it from existing forever on miss
-        Destroy(gameObject, lifetime);
+        //Destroy(gameObject, lifetime);
         speed = Random.Range(8f, 12f);
     }
 
