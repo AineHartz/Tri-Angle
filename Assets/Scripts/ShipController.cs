@@ -24,6 +24,7 @@ public class SpaceshipController : MonoBehaviour
     public bool tempInvincibility;
     // How long you're invincible for after being hit
     public float iFrames;
+    private Color defaultColor = Color.white;
 
     /*
     Game objects
@@ -31,6 +32,7 @@ public class SpaceshipController : MonoBehaviour
     private Rigidbody2D rb;
     private Camera mainCam;
     private AudioSource[] audios;
+    private SpriteRenderer shipSprite;
 
 
     /*
@@ -73,6 +75,7 @@ public class SpaceshipController : MonoBehaviour
         tempInvincibility = false;
 
         audios = GetComponentsInChildren<AudioSource>();
+        shipSprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -116,6 +119,23 @@ public class SpaceshipController : MonoBehaviour
             {
                 Shoot();
             }
+        }
+
+
+        //These three are cheat codes for testing, will be commented out later
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            setAlt();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            heal();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            setImmune();
         }
 
         LimitSpeed();
@@ -219,6 +239,7 @@ public class SpaceshipController : MonoBehaviour
     {
         health--;
         altShot = false;
+        StartCoroutine(Ouch());
 
         if (health == 0)
         {
@@ -231,6 +252,27 @@ public class SpaceshipController : MonoBehaviour
             tempInvincibility = true;
             StartCoroutine(ResetInvincibility());
         }
+    }
+
+    void heal()
+    {
+        if(health != 3)
+        {
+            health++;
+        }
+        StartCoroutine(Heal());
+    }
+
+    void setAlt()
+    {
+        altShot = true;
+        ColorUtility.TryParseHtmlString("#C59D34", out Color orange);
+        shipSprite.color = orange;
+    }
+
+    void setImmune()
+    {
+        StartCoroutine(Immune());
     }
 
     private IEnumerator ResetInvincibility()
@@ -246,5 +288,48 @@ public class SpaceshipController : MonoBehaviour
         yield return new WaitForSecondsRealtime(audios[3].clip.length);
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
+    }
+
+    private IEnumerator Ouch()
+    {
+        ColorUtility.TryParseHtmlString("#AC1E1E", out Color flashColor);
+
+        flashColor.a = 0.5f;
+
+        shipSprite.color = flashColor;
+
+        yield return new WaitForSecondsRealtime(0.25f);
+
+        shipSprite.color = defaultColor;
+    }
+
+    private IEnumerator Heal()
+    {
+        Color currentColor = shipSprite.color;
+
+        ColorUtility.TryParseHtmlString("#25AC1E", out Color flashColor);
+
+        flashColor.a = 0.5f;
+
+        shipSprite.color = flashColor;
+
+        yield return new WaitForSecondsRealtime(0.25f);
+
+        shipSprite.color = currentColor;
+    }
+
+    private IEnumerator Immune()
+    {
+        tempInvincibility = true;
+        Color currentColor = shipSprite.color;
+        Debug.Log(currentColor);
+
+        ColorUtility.TryParseHtmlString("#A134E1", out Color flashColor);
+        shipSprite.color = flashColor;
+
+        yield return new WaitForSecondsRealtime(2f);
+
+        tempInvincibility = false;
+        shipSprite.color = currentColor;
     }
 }

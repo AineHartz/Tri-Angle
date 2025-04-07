@@ -25,7 +25,7 @@ public class HPScript : MonoBehaviour
     {
         healthNum = healthScript.health;
 
-        Debug.Log("Health is " + healthNum);
+        //Debug.Log("Health is " + healthNum);
         if(healthNum == 3){
             
             HPSprite.sprite = healthBarArray[0];
