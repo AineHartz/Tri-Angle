@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    private float damage = 4f; 
+    private int damage = 4; 
 
     void Update()
     {
@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     }
 
     //When obstacles get hit, they can use this getter to see how hurt they are.
-    float  getDamage()
+    public int  getDamage()
     {
         return damage;
     }
