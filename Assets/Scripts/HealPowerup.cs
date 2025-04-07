@@ -8,6 +8,7 @@ public class HealPowerup : MonoBehaviour
             {
 
                 collision.gameObject.GetComponent<SpaceshipController>().heal();
+                Destroy(gameObject);
             }
         }
 }

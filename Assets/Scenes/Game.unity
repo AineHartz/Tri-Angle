@@ -2503,6 +2503,10 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 8826141114580959697, guid: 83366eef27c4e4a519d4273034a4890d, type: 3}
   - {fileID: 7107250117507807268, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
+  powerupPrefabs:
+  - {fileID: 3800997890128642661, guid: 9b95b9be6da81c543bd90e05236f1ee0, type: 3}
+  - {fileID: 253767178451990844, guid: d775f89bd3780dc4a903f6b71545537d, type: 3}
+  - {fileID: 7035846681039824285, guid: ef85a94b5b4628147a5a046cf6e897bb, type: 3}
 --- !u!1 &2043783054
 GameObject:
   m_ObjectHideFlags: 0

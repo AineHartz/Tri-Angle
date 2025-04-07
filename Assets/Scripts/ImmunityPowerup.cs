@@ -8,6 +8,7 @@ public class ImmunityPowerup : MonoBehaviour
         {
 
             collision.gameObject.GetComponent<SpaceshipController>().setImmune();
+            Destroy(gameObject);
         }
     }
 }

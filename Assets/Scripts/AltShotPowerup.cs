@@ -8,6 +8,7 @@ public class AltShotPowerup : MonoBehaviour
         {
             //colision.ShipController.setAlt();
             collision.gameObject.GetComponent<SpaceshipController>().setAlt();
+            Destroy(gameObject);
         }
     }
 }
