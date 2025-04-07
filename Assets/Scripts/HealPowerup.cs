@@ -2,13 +2,26 @@ using UnityEngine;
 
 public class HealPowerup : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if(collision.gameObject.tag=="Player")
-            {
+    public float lifeTimer;
 
-                collision.gameObject.GetComponent<SpaceshipController>().heal();
-                Destroy(gameObject);
-            }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="Player")
+        {
+
+            collision.gameObject.GetComponent<SpaceshipController>().heal();
+            Destroy(gameObject);
         }
+    }
+
+    public void setTimer() {
+        lifeTimer = 5.0f;
+    }
+
+    void Update() {
+        lifeTimer = lifeTimer - Time.deltaTime;
+        if(lifeTimer < 0) {
+            Destroy(gameObject);
+        }
+    }
 }

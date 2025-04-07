@@ -15,6 +15,9 @@ public class SpawnObstacle : MonoBehaviour
     private bool spawned;
     private MoveObstacles movement;
     //private int obstacleNum;
+    private AltShotPowerup lifeTimerShot;
+    private HealPowerup lifeTimerHeal;
+    private ImmunityPowerup lifeTimerImmune;
 
     private void spawnObstacle() {
         int randomSpawn = Random.Range(0, spawnPoints.Length);
@@ -37,14 +40,20 @@ public class SpawnObstacle : MonoBehaviour
         if(randomNum == 1) {
             GameObject chosenPowerup = powerupPrefabs[0];
             chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+            lifeTimerShot = chosenPowerup.GetComponent<AltShotPowerup>();
+            lifeTimerShot.setTimer();
         }
         if(randomNum == 2 || randomNum == 3) {
             GameObject chosenPowerup = powerupPrefabs[1];
             chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+            lifeTimerHeal = chosenPowerup.GetComponent<HealPowerup>();
+            lifeTimerHeal.setTimer();
         }
         if(randomNum == 4) {
             GameObject chosenPowerup = powerupPrefabs[2];
             chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+            lifeTimerImmune = chosenPowerup.GetComponent<ImmunityPowerup>();
+            lifeTimerImmune.setTimer();
         }
         powerupSpawned = true;
         powerupWait = Random.Range(6.0f, 12.0f);
