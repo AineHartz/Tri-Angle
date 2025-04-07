@@ -18,16 +18,21 @@ public class DivideObstacles : MonoBehaviour
     public float maxSpawnX;
     public float minSpawnY;
     public float maxSpawnY;
+
+    public int asteroidSize;
+
+    public GameObject middleAsteroid;
+    public GameObject smallAsteroid;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        StartCoroutine(DisableColliderForAFrame());
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log("currentHP" + currentHP);
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -36,52 +41,40 @@ public class DivideObstacles : MonoBehaviour
              Destroy(other.gameObject);
             
 
-            if (splitCount < maxSplits - 1){
-                SpawnNewObstacles();
+            if(asteroidSize == 3){
+                Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+                Instantiate(middleAsteroid, transform.position, transform.rotation);
             }
-            
+
+            else if(asteroidSize == 2){
+                Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+                Instantiate(smallAsteroid, transform.position, transform.rotation);
+            }
+
+            else if(asteroidSize == 1){
+
+            }
+           
             Destroy(gameObject);
             
 
             
-            // Debug.Log("baseHP" + baseHP);
         }
     }
 
-    void SpawnNewObstacles(){
-        for (int i = 0; i < 2; i++){
-            
-            Vector3 spawnPosition = transform.position + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0);
-            GameObject newObstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
-            DivideObstacles newObstaclePrefab = newObstacle.GetComponent<DivideObstacles>();
-            newObstaclePrefab.splitCount = this.splitCount + 1; 
-            newObstaclePrefab.currentHP /= 2;
-            // getImage(newObstacle, newObstaclePrefab.currentHP);
-           
+
+    //make collider wait a frame so it doesn't instantiate small asteroid immediately after a medium asteroid is spawned
+    IEnumerator DisableColliderForAFrame()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false;
+            yield return null; 
+            col.enabled = true;
         }
     }
 
-    // void getImage(GameObject targetObstacle, int currentHPP){
-        
-    //     // Image healthIcon = healthBar.GetComponent<Image>()
-    //    SpriteRenderer healthIcon = targetObstacle.GetComponentInChildren<SpriteRenderer>();
-
-    // if (currentHP == 12)
-    // {
-    //     spriteRenderer.sprite = healthImages[0];
-    // }
-    // else if (currentHP == 6)
-    // {
-    //     spriteRenderer.sprite = healthImages[1];
-    // }
-    // else if (currentHP == 3)
-    // {
-    //     spriteRenderer.sprite = healthImages[2];
-    // }
-
-    // spriteRenderer.transform.localScale = new Vector3(.2f, .2f, .2f);
-    // spriteRenderer.transform.position = new Vector3(0,1,0);
-    //     }
-     }
+}
 
 
