@@ -2501,7 +2501,8 @@ MonoBehaviour:
   - {fileID: 1053508522}
   - {fileID: 1544701078}
   obstaclePrefabs:
-  - {fileID: 8914020134620504431, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
+  - {fileID: 8826141114580959697, guid: 83366eef27c4e4a519d4273034a4890d, type: 3}
+  - {fileID: 7107250117507807268, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
 --- !u!1 &2043783054
 GameObject:
   m_ObjectHideFlags: 0
