@@ -131,17 +131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 0}
-  splitCount: 0
-  maxSplits: 3
   baseHP: 12
   currentHP: 12
-  minSpawnX: -1
-  maxSpawnX: 1
-  minSpawnY: -1
-  maxSpawnY: 1
+  minSpawnX: -1.5
+  maxSpawnX: 1.5
+  minSpawnY: -1.5
+  maxSpawnY: 1.5
   asteroidSize: 1
-  middleAsteroid: {fileID: 5047393309625338107, guid: 68b571e109a92473d83ddf471ec452cb, type: 3}
-  smallAsteroid: {fileID: 5546286488431330344}
+  middleAsteroid: {fileID: 4058286778173906047, guid: 81d1e3d55b2b641c99a6701238b9d782, type: 3}
+  smallAsteroid: {fileID: 712356227851313111, guid: b4c801424309e4487b882e5c152bfe28, type: 3}
+  baseScore: 300
 --- !u!58 &6231765190525122134
 CircleCollider2D:
   m_ObjectHideFlags: 0
