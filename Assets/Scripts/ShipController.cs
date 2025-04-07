@@ -254,7 +254,7 @@ public class SpaceshipController : MonoBehaviour
         }
     }
 
-    void heal()
+    public void heal()
     {
         if(health != 3)
         {
@@ -263,14 +263,14 @@ public class SpaceshipController : MonoBehaviour
         StartCoroutine(Heal());
     }
 
-    void setAlt()
+    public void setAlt()
     {
         altShot = true;
         ColorUtility.TryParseHtmlString("#C59D34", out Color orange);
         shipSprite.color = orange;
     }
 
-    void setImmune()
+    public void setImmune()
     {
         StartCoroutine(Immune());
     }

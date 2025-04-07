@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb1f0e14873572448454bcd72401206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 0}
+  obstaclePrefab: {fileID: 712356227851313111}
   obstacleSpeed: 2.5
   spawnPoint: 2
   randomY: 0

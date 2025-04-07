@@ -8,7 +8,10 @@ public class SpawnObstacle : MonoBehaviour
     public Transform[] spawnPoints;
     //public MoveObstacles[] obstaclePrefabs;
     public GameObject[] obstaclePrefabs;
+    public GameObject[] powerupPrefabs;
+    private float powerupWait;
     private float waitTime;
+    private bool powerupSpawned;
     private bool spawned;
     private MoveObstacles movement;
     //private int obstacleNum;
@@ -27,11 +30,33 @@ public class SpawnObstacle : MonoBehaviour
         waitTime = 4.0f;
     }
 
+    private void spawnPowerup() {
+        int randomNum = Random.Range(1,7);
+        float randomX = Random.Range(-8.35f, 8.35f);
+        float randomY = Random.Range(-4.5f, 4.5f);
+        if(randomNum == 1) {
+            GameObject chosenPowerup = powerupPrefabs[0];
+            chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+        }
+        if(randomNum == 2 || randomNum == 3) {
+            GameObject chosenPowerup = powerupPrefabs[1];
+            chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+        }
+        if(randomNum == 4) {
+            GameObject chosenPowerup = powerupPrefabs[2];
+            chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
+        }
+        powerupSpawned = true;
+        powerupWait = Random.Range(6.0f, 12.0f);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawned = false;
         waitTime = 0.0f;
+        powerupSpawned = false;
+        powerupWait = 5.0f;
     }
 
     // Update is called once per frame
@@ -43,6 +68,14 @@ public class SpawnObstacle : MonoBehaviour
         }
         if (spawned == false) {
             spawnObstacle();
+        }
+
+        powerupWait = powerupWait - Time.deltaTime;
+        if (powerupWait < 0) {
+            powerupSpawned = false;
+        }
+        if (powerupSpawned == false) {
+            spawnPowerup();
         }
     }
 }

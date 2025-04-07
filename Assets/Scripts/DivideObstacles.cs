@@ -13,6 +13,7 @@ public class DivideObstacles : MonoBehaviour
     // public int maxSplits = 2;
 
     public int baseHP = 12;
+
     public int currentHP;
     public float minSpawnX;
     public float maxSpawnX;
@@ -75,7 +76,7 @@ public class DivideObstacles : MonoBehaviour
             }
 
             else if(asteroidSize == 1){
-
+            
             }
            
             Destroy(gameObject);
