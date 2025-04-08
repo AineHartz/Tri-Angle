@@ -27,6 +27,7 @@ public class DivideObstacles : MonoBehaviour
     private bool canBeHit;
 
     public int baseScore = 300;
+    public int currentSpawns = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,8 +55,9 @@ public class DivideObstacles : MonoBehaviour
             
             if(currentHP <= 0)
             {
-                if(asteroidSize == 3)
+                if(asteroidSize == 3 && currentSpawns < 2)
                 {
+                    currentSpawns = 2;
                     GameObject asteroid1 = Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
                     GameObject asteroid2 = Instantiate(middleAsteroid, transform.position, transform.rotation);
 
@@ -65,8 +67,9 @@ public class DivideObstacles : MonoBehaviour
                     asteroid2.GetComponent<DivideObstacles>().baseScore -= 100;
                 }
 
-                else if(asteroidSize == 2)
+                else if(asteroidSize == 2 && currentSpawns < 2)
                 {
+                    currentSpawns = 2;
                     GameObject asteroid1 = Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
                     GameObject asteroid2 = Instantiate(smallAsteroid, transform.position, transform.rotation);
 

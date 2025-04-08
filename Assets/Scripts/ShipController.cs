@@ -24,7 +24,7 @@ public class SpaceshipController : MonoBehaviour
     public bool tempInvincibility;
     // How long you're invincible for after being hit
     public float iFrames;
-    private Color defaultColor = Color.white;
+    private Color baseColor = Color.white;
 
     /*
     Game objects
@@ -239,6 +239,7 @@ public class SpaceshipController : MonoBehaviour
     {
         health--;
         altShot = false;
+        baseColor = Color.white;
         StartCoroutine(Ouch());
 
         if (health == 0)
@@ -267,7 +268,8 @@ public class SpaceshipController : MonoBehaviour
     {
         altShot = true;
         ColorUtility.TryParseHtmlString("#C59D34", out Color orange);
-        shipSprite.color = orange;
+        baseColor = orange;
+        shipSprite.color = baseColor;
     }
 
     public void setImmune()
@@ -300,13 +302,11 @@ public class SpaceshipController : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.25f);
 
-        shipSprite.color = defaultColor;
+        shipSprite.color = baseColor;
     }
 
     private IEnumerator Heal()
     {
-        Color currentColor = shipSprite.color;
-
         ColorUtility.TryParseHtmlString("#25AC1E", out Color flashColor);
 
         flashColor.a = 0.5f;
@@ -315,14 +315,12 @@ public class SpaceshipController : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.25f);
 
-        shipSprite.color = currentColor;
+        shipSprite.color = baseColor;
     }
 
     private IEnumerator Immune()
     {
         tempInvincibility = true;
-        Color currentColor = shipSprite.color;
-        Debug.Log(currentColor);
 
         ColorUtility.TryParseHtmlString("#A134E1", out Color flashColor);
         shipSprite.color = flashColor;
@@ -330,6 +328,6 @@ public class SpaceshipController : MonoBehaviour
         yield return new WaitForSecondsRealtime(2f);
 
         tempInvincibility = false;
-        shipSprite.color = currentColor;
+        shipSprite.color = baseColor;
     }
 }
