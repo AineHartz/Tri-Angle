@@ -81,7 +81,7 @@ public class DivideObstacles : MonoBehaviour
             
                 }
 
-                // GameManager.addScore(baseScore);
+                GameManager.addScore(baseScore);
                 Destroy(gameObject);
 
             }
