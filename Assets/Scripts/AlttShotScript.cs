@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class AlttShotScript : MonoBehaviour
+public class AlttShotScript : MonoBehaviour, RealProjectile
 {
     private float speed;
-    private float damage = 1f;
+    private int damage = 1;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class AlttShotScript : MonoBehaviour
     }
 
     //When obstacles get hit, they can use this getter to see how hurt they are.
-    float getDamage()
+    public int getDamage()
     {
         return damage;
     }

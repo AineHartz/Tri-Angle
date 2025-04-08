@@ -48,38 +48,42 @@ public class DivideObstacles : MonoBehaviour
             // }
             // currentHP = baseHP/2;
 
-            currentHP -= other.gameObject.GetComponent<Projectile>().getDamage();
+            currentHP -= other.gameObject.GetComponent<RealProjectile>().getDamage();
 
-             Destroy(other.gameObject);
+            Destroy(other.gameObject);
             
-            if(currentHP == 0){
+            if(currentHP <= 0)
+            {
+                if(asteroidSize == 3)
+                {
+                    GameObject asteroid1 = Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+                    GameObject asteroid2 = Instantiate(middleAsteroid, transform.position, transform.rotation);
 
+                    asteroid1.GetComponent<DivideObstacles>().currentHP /= 2;
+                    asteroid2.GetComponent<DivideObstacles>().currentHP /= 2;
+                    asteroid1.GetComponent<DivideObstacles>().baseScore -= 100;
+                    asteroid2.GetComponent<DivideObstacles>().baseScore -= 100;
+                }
+
+                else if(asteroidSize == 2)
+                {
+                    GameObject asteroid1 = Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+                    GameObject asteroid2 = Instantiate(smallAsteroid, transform.position, transform.rotation);
+
+                    asteroid1.GetComponent<DivideObstacles>().currentHP /= 4;
+                    asteroid2.GetComponent<DivideObstacles>().currentHP /= 4;
+                    asteroid1.GetComponent<DivideObstacles>().baseScore -= 100;
+                    asteroid2.GetComponent<DivideObstacles>().baseScore -= 100;
+                }
+
+                else if(asteroidSize == 1)
+                {
             
-            if(asteroidSize == 3){
-                GameObject asteroid1 = Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                GameObject asteroid2 = Instantiate(middleAsteroid, transform.position, transform.rotation);
+                }
 
-                asteroid1.GetComponent<DivideObstacles>().currentHP /= 2;
-                asteroid2.GetComponent<DivideObstacles>().currentHP /= 2;
-                asteroid1.GetComponent<DivideObstacles>().baseScore -= 100;
-              
-                
-            }
+                // GameManager.addScore(baseScore);
+                Destroy(gameObject);
 
-            else if(asteroidSize == 2){
-                GameObject asteroid1 = Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                GameObject asteroid2 = Instantiate(smallAsteroid, transform.position, transform.rotation);
-
-                asteroid1.GetComponent<DivideObstacles>().currentHP /= 4;
-                asteroid2.GetComponent<DivideObstacles>().currentHP /= 4;
-                asteroid1.GetComponent<DivideObstacles>().baseScore -= 100;
-            }
-
-            else if(asteroidSize == 1){
-            
-            }
-           
-            Destroy(gameObject);
             }
 
             
