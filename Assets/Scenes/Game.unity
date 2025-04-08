@@ -406,11 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f658a19c1c4be438d022fc17b15781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &238678059 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8914020134620504431, guid: 0f8052c59969e4022ac3b44b446427cd, type: 3}
-  m_PrefabInstance: {fileID: 888329564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &363578119
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +892,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -25.88501, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1234,11 +1229,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4077
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.56
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2699,71 +2694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f658a19c1c4be438d022fc17b15781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &3480557764981939172
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 412779880123261299, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: obstaclePrefab
-      value: 
-      objectReference: {fileID: 238678059}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177133049226639665, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7107250117507807268, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: m_Name
-      value: asteroid_Large1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7433242685066798299, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
-      propertyPath: obstaclePrefab
-      value: 
-      objectReference: {fileID: 238678059}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3c26ba0f4b3334f41838e96eefa28447, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2776,4 +2706,3 @@ SceneRoots:
   - {fileID: 16650281}
   - {fileID: 857388988}
   - {fileID: 888329564}
-  - {fileID: 3480557764981939172}
