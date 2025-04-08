@@ -121,8 +121,8 @@ public class SpaceshipController : MonoBehaviour
             }
         }
 
-
-        //These three are cheat codes for testing, will be commented out later
+        /*
+        //Cheat codes for testing purposes. Commented out for production. 
         if (Input.GetKeyDown(KeyCode.O))
         {
             setAlt();
@@ -137,6 +137,7 @@ public class SpaceshipController : MonoBehaviour
         {
             setImmune();
         }
+        */
 
         LimitSpeed();
         HandleScreenWrap();
