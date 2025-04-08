@@ -36,7 +36,7 @@ public class SpawnObstacle : MonoBehaviour
     private void spawnPowerup() {
         int randomNum = Random.Range(1,7);
         float randomX = Random.Range(-8.35f, 8.35f);
-        float randomY = Random.Range(-4.5f, 4.5f);
+        float randomY = Random.Range(-4.5f, 3f);
         if(randomNum == 1) {
             GameObject chosenPowerup = powerupPrefabs[0];
             chosenPowerup = Instantiate(chosenPowerup, new Vector2(randomX, randomY), Quaternion.identity);
@@ -64,8 +64,8 @@ public class SpawnObstacle : MonoBehaviour
     {
         spawned = false;
         waitTime = 0.0f;
-        powerupSpawned = false;
-        powerupWait = 5.0f;
+        powerupSpawned = true;
+        powerupWait = 10.0f;
     }
 
     // Update is called once per frame
