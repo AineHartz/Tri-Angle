@@ -30,7 +30,7 @@ public class SpawnObstacle : MonoBehaviour
         chosenObstacle = Instantiate(chosenObstacle, spawnPoints[randomSpawn].position, spawnPoints[randomSpawn].rotation) as GameObject;
 
         spawned = true;
-        waitTime = 4.0f;
+        waitTime = 3.0f;
     }
 
     private void spawnPowerup() {

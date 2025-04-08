@@ -14,7 +14,7 @@ public class AltShotPowerup : MonoBehaviour
     }
 
     public void setTimer() {
-        lifeTimer = 5.0f;
+        lifeTimer = 15.0f;
     }
 
     void Update() {

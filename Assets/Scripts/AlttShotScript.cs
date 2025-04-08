@@ -3,7 +3,7 @@ using UnityEngine;
 public class AlttShotScript : MonoBehaviour, RealProjectile
 {
     private float speed;
-    private int damage = 1;
+    private int damage = 2;
 
     void Start()
     {
