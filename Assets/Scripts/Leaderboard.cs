@@ -9,5 +9,7 @@ public class Leaderboard : MonoBehaviour
     {
         textbox = GetComponent<TMP_Text>();
         textbox.text = "Your score\n" + GameManager.score.ToString();
+        //Reset score after displaying
+        GameManager.score = 0;
     }
 }

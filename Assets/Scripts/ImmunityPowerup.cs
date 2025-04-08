@@ -14,7 +14,7 @@ public class ImmunityPowerup : MonoBehaviour
     }
 
     public void setTimer() {
-        lifeTimer = 10.0f;
+        lifeTimer = 7.5f;
     }
 
     void Update() {

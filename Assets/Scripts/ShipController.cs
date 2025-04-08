@@ -326,7 +326,7 @@ public class SpaceshipController : MonoBehaviour
         ColorUtility.TryParseHtmlString("#A134E1", out Color flashColor);
         shipSprite.color = flashColor;
 
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(8f);
 
         tempInvincibility = false;
         shipSprite.color = baseColor;
