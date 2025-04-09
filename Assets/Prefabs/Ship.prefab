@@ -14842,12 +14842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faabae90c671f14dbf73c8e1f81993a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustForce: 1
-  brakeForce: 0.5
-  rotationTorque: 1
-  rotationDrag: 1
+  thrustForce: 2
+  brakeForce: 1
+  rotationTorque: 2
+  rotationDrag: 2
   maxSpeed: 5
-  maxAngularSpeed: 60
+  maxAngularSpeed: 120
   health: 0
   altShot: 0
   tempInvincibility: 0
