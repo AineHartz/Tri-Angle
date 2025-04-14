@@ -59,7 +59,7 @@ public class DivideObstacles : MonoBehaviour
                 {
                     currentSpawns = 2;
                     GameObject asteroid1 = Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                    GameObject asteroid2 = Instantiate(middleAsteroid, transform.position, transform.rotation);
+                    GameObject asteroid2 = Instantiate(middleAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
 
                     asteroid1.GetComponent<DivideObstacles>().currentHP /= 2;
                     asteroid2.GetComponent<DivideObstacles>().currentHP /= 2;
@@ -71,7 +71,7 @@ public class DivideObstacles : MonoBehaviour
                 {
                     currentSpawns = 2;
                     GameObject asteroid1 = Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                    GameObject asteroid2 = Instantiate(smallAsteroid, transform.position, transform.rotation);
+                    GameObject asteroid2 = Instantiate(smallAsteroid, transform.position + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
 
                     asteroid1.GetComponent<DivideObstacles>().currentHP /= 4;
                     asteroid2.GetComponent<DivideObstacles>().currentHP /= 4;
