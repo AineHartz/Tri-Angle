@@ -312,17 +312,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 0}
-  splitCount: 0
-  maxSplits: 3
   baseHP: 12
   currentHP: 12
   minSpawnX: -1
   maxSpawnX: 1
   minSpawnY: -1
   maxSpawnY: 1
+  offset: {x: 0.6, y: 0.6, z: 0}
   asteroidSize: 3
   middleAsteroid: {fileID: 4058286778173906047, guid: 81d1e3d55b2b641c99a6701238b9d782, type: 3}
   smallAsteroid: {fileID: 712356227851313111, guid: b4c801424309e4487b882e5c152bfe28, type: 3}
+  baseScore: 300
+  currentSpawns: 0
 --- !u!114 &1838878922224737130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8826141114580959697}
   obstacleSpeed: 2.5
-  spawnPoint: 2
+  spawnPoint: 1
   randomY: 0
   randomX: 0

@@ -15,10 +15,7 @@ public class DivideObstacles : MonoBehaviour
     public int baseHP = 12;
 
     public int currentHP;
-    public float minSpawnX;
-    public float maxSpawnX;
-    public float minSpawnY;
-    public float maxSpawnY;
+    public Vector3 offset;
 
     public int asteroidSize;
 
@@ -58,8 +55,9 @@ public class DivideObstacles : MonoBehaviour
                 if(asteroidSize == 3 && currentSpawns < 2)
                 {
                     currentSpawns = 2;
-                    GameObject asteroid1 = Instantiate(middleAsteroid, transform.position +  new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                    GameObject asteroid2 = Instantiate(middleAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+
+                    GameObject asteroid1 = Instantiate(middleAsteroid, transform.position + offset, transform.rotation);
+                    GameObject asteroid2 = Instantiate(middleAsteroid, transform.position - offset, transform.rotation);
 
                     asteroid1.GetComponent<DivideObstacles>().currentHP /= 2;
                     asteroid2.GetComponent<DivideObstacles>().currentHP /= 2;
@@ -70,8 +68,9 @@ public class DivideObstacles : MonoBehaviour
                 else if(asteroidSize == 2 && currentSpawns < 2)
                 {
                     currentSpawns = 2;
-                    GameObject asteroid1 = Instantiate(smallAsteroid, transform.position  + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
-                    GameObject asteroid2 = Instantiate(smallAsteroid, transform.position + new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), 0), transform.rotation);
+
+                    GameObject asteroid1 = Instantiate(smallAsteroid, transform.position + offset, transform.rotation);
+                    GameObject asteroid2 = Instantiate(smallAsteroid, transform.position - offset, transform.rotation);
 
                     asteroid1.GetComponent<DivideObstacles>().currentHP /= 4;
                     asteroid2.GetComponent<DivideObstacles>().currentHP /= 4;

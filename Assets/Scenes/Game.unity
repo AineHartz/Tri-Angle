@@ -1228,6 +1228,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1526002
+      objectReference: {fileID: 0}
+    - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7505076
+      objectReference: {fileID: 0}
+    - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
       objectReference: {fileID: 0}
@@ -1267,21 +1279,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1659573999708856817, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2075860679191268631, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053485105306885395, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
-      propertyPath: m_Color.a
+    - target: {fileID: 674341628221160048, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3304178503764199790, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3988312121234636228, guid: bba64a3e92b08f34d86190963241a46b, type: 3}
       propertyPath: m_Name

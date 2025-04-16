@@ -4949,7 +4949,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14842,10 +14842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faabae90c671f14dbf73c8e1f81993a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustForce: 2
-  brakeForce: 1
-  rotationTorque: 2
-  rotationDrag: 2
+  thrustForce: 3
+  brakeForce: 2
+  rotationTorque: 3
+  rotationDrag: 3
   maxSpeed: 5
   maxAngularSpeed: 120
   health: 0
@@ -14875,7 +14875,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0d4acde7ddd2a4fadae86513286ab62b, type: 3}
   m_Resource: {fileID: 8300000, guid: 0d4acde7ddd2a4fadae86513286ab62b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20199,7 +20199,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2

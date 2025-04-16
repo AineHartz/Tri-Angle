@@ -133,14 +133,16 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 0}
   baseHP: 12
   currentHP: 12
-  minSpawnX: -1.5
-  maxSpawnX: 1.5
-  minSpawnY: -1.5
-  maxSpawnY: 1.5
+  minSpawnX: -5
+  maxSpawnX: 5
+  minSpawnY: -5
+  maxSpawnY: 5
+  offset: {x: 0.25, y: 0.25, z: 0}
   asteroidSize: 1
   middleAsteroid: {fileID: 4058286778173906047, guid: 81d1e3d55b2b641c99a6701238b9d782, type: 3}
   smallAsteroid: {fileID: 712356227851313111, guid: b4c801424309e4487b882e5c152bfe28, type: 3}
   baseScore: 300
+  currentSpawns: 0
 --- !u!58 &6231765190525122134
 CircleCollider2D:
   m_ObjectHideFlags: 0
